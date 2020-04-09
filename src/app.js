@@ -58,7 +58,7 @@ app.delete("/repositories/:id", (req, res) => {
   repositoryIndex = repositories.findIndex(repo => repo.id === id);
 
   if (repositoryIndex < 0) {
-    return res.status(400).json({ error: "ID is not belongs this repository" });
+    return res.status(400).json({ error: "ID does not belongs this repository" });
   }
 
   repositories.splice(repositoryIndex, 1);
@@ -70,7 +70,7 @@ app.post("/repositories/:id/like", (request, response) => {
   const repositoryIndex = repositories.findIndex(repo => repo.id === id);
 
   if (repositoryIndex < 0) {
-    return response.status(400).json({ error: "ID is not belongs this repository" });
+    return response.status(400).json({ error: "ID does not belongs this repository" });
   }
 
   const repository = repositories[repositoryIndex];
